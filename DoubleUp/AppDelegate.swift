@@ -82,18 +82,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func newStart(){
         if let userToken = getUserToken(){
-            var json: Parameters
+            var json: Parameters = [:]
+            json["Token"] = "\(userToken)"
+            
             if let pushToken = getNotificationToken(){
-                json = [
-                    "Token": "\(userToken)",
-                    "NotificationToken": "\(pushToken)"
-                ]
+                json["NotificationToken"] = "\(pushToken)"
+            }
+    
+            let nsObject = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
+            if let buildVersion = nsObject{
+                print("Version: \(buildVersion)")
+                json["Version"] = buildVersion
             }
             else{
-                //Is null, no notification token recieved
-                json = [
-                    "Token": "\(userToken)"
-                ]
+                print("Could not get version")
             }
             
             Alamofire.request("\(getMainURL())/newStartup", method: .post, parameters: json, encoding: JSONEncoding.default).responseJSON { response in
