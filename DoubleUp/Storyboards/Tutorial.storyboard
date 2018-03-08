@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="V0l-O2-MyX">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tutorial Page View Controller-->
+        <scene sceneID="QRj-nc-Ck7">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="V0l-O2-MyX" customClass="TutorialPageViewController" customModule="DoubleUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Qd-Xa-N7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-782" y="90"/>
+        </scene>
+        <!--First View Controller-->
+        <scene sceneID="TaI-f1-ksf">
+            <objects>
+                <viewController storyboardIdentifier="FirstPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CfD-jf-1fW" customClass="FirstViewController" customModule="DoubleUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Eow-gc-3G1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="26j-Cy-cU3">
+                                <rect key="frame" x="20" y="64" width="335" height="728"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to DoubleUp!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvd-J8-SVO">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="159"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xj-K5-AE2">
+                                        <rect key="frame" x="0.0" y="169" width="335" height="229"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">To start, you will be given 100 worth of game currency to play with. With that, you can start new games with anyone around the globe, and anyone can start a game with you. Let the fun begin!</string>
+                                                <attributes>
+                                                    <font key="NSFont" size="21" name=".SFNSDisplay"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHV-bp-bwl">
+                                        <rect key="frame" x="0.0" y="408" width="335" height="320"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="You will now be asked to accept notifications. This is so you can know directly when someone makes a play on a game">
+                                                <attributes>
+                                                    <font key="NSFont" metaFont="system" size="21"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="26j-Cy-cU3" secondAttribute="bottom" constant="20" id="0KU-o8-1Hx"/>
+                            <constraint firstItem="JI0-hd-WxJ" firstAttribute="trailing" secondItem="26j-Cy-cU3" secondAttribute="trailing" constant="20" id="4Cw-fu-g6B"/>
+                            <constraint firstItem="26j-Cy-cU3" firstAttribute="top" secondItem="JI0-hd-WxJ" secondAttribute="top" constant="20" id="TI2-Ge-n3J"/>
+                            <constraint firstItem="26j-Cy-cU3" firstAttribute="leading" secondItem="JI0-hd-WxJ" secondAttribute="leading" constant="20" id="dKu-Lf-0mY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JI0-hd-WxJ"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tW0-TZ-7y7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-37.600000000000001" y="89.505247376311857"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="Tca-xa-zss">
+            <objects>
+                <viewController storyboardIdentifier="SecondPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gky-Vx-BHk" customClass="SecondViewController" customModule="DoubleUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kxH-Xh-R0D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyw-SL-qhY">
+                                <rect key="frame" x="132.66666666666666" y="366" width="110" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="gL2-c7-NdZ"/>
+                                    <constraint firstAttribute="width" constant="110" id="gcw-Jv-p3E"/>
+                                </constraints>
+                                <state key="normal" title="Set username"/>
+                                <connections>
+                                    <action selector="setUsernamePressed:" destination="gky-Vx-BHk" eventType="touchUpInside" id="IlC-Ei-3tJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a username!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0DI-Do-enS">
+                                <rect key="frame" x="81" y="64" width="213" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ofL-YQ-7IN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WD-5L-uhR">
+                                <rect key="frame" x="20" y="114" width="335" height="182"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="182" id="94W-93-tTi"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="167" id="gpL-UH-WT0"/>
+                                </constraints>
+                                <string key="text">Now you can choose a username for the game! It will be used so other users can send requests to you, and it can be changed any number of times in the app. It must be a unique name with 3-14 characters. You can skip this step now, but the app will then have limited functionality</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eue-aZ-yct">
+                                <rect key="frame" x="92.666666666666686" y="316" width="190" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="190" id="DfF-ev-rt8"/>
+                                    <constraint firstAttribute="height" constant="30" id="Mr9-gT-DWm"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" textContentType="username"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="4WD-5L-uhR" secondAttribute="trailing" constant="20" id="7Fp-d4-c3e"/>
+                            <constraint firstItem="4WD-5L-uhR" firstAttribute="centerX" secondItem="kxH-Xh-R0D" secondAttribute="centerX" id="BNX-1Y-Mb5"/>
+                            <constraint firstItem="0DI-Do-enS" firstAttribute="top" secondItem="1be-Ff-fcb" secondAttribute="top" constant="20" id="DrR-cB-Qen"/>
+                            <constraint firstItem="4WD-5L-uhR" firstAttribute="leading" secondItem="kxH-Xh-R0D" secondAttribute="leading" constant="20" id="Q8B-1m-P01"/>
+                            <constraint firstItem="dyw-SL-qhY" firstAttribute="top" secondItem="eue-aZ-yct" secondAttribute="bottom" constant="20" id="a2y-gz-uHG"/>
+                            <constraint firstItem="eue-aZ-yct" firstAttribute="centerX" secondItem="kxH-Xh-R0D" secondAttribute="centerX" id="bDb-eE-Lwp"/>
+                            <constraint firstItem="4WD-5L-uhR" firstAttribute="top" secondItem="0DI-Do-enS" secondAttribute="bottom" constant="20" id="cbx-JS-oRd"/>
+                            <constraint firstItem="4WD-5L-uhR" firstAttribute="top" secondItem="0DI-Do-enS" secondAttribute="bottom" constant="20" id="rDf-39-Oqw"/>
+                            <constraint firstItem="eue-aZ-yct" firstAttribute="top" secondItem="4WD-5L-uhR" secondAttribute="bottom" constant="20" id="sBs-Zz-6Bs"/>
+                            <constraint firstItem="0DI-Do-enS" firstAttribute="centerX" secondItem="kxH-Xh-R0D" secondAttribute="centerX" id="uGR-8M-vUl"/>
+                            <constraint firstItem="dyw-SL-qhY" firstAttribute="centerX" secondItem="kxH-Xh-R0D" secondAttribute="centerX" id="wap-kP-bWe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1be-Ff-fcb"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="mainLabel" destination="0DI-Do-enS" id="jgo-aQ-WV4"/>
+                        <outlet property="setUsernameButton" destination="dyw-SL-qhY" id="6qZ-qH-C3e"/>
+                        <outlet property="usernameField" destination="eue-aZ-yct" id="2iH-Fo-aZa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pAM-9a-wQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="645" y="87.5"/>
+        </scene>
+        <!--Third View Controller-->
+        <scene sceneID="bba-Yl-RWI">
+            <objects>
+                <viewController storyboardIdentifier="ThirdPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HZ9-hx-AVg" customClass="ThirdViewController" customModule="DoubleUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ON4-UO-yw4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ouT-3e-fOn">
+                                <rect key="frame" x="124.66666666666669" y="371.33333333333331" width="127" height="70.666666666666686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tnx lets play" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTg-Bq-tob">
+                                        <rect key="frame" x="0.0" y="0.0" width="127" height="28.666666666666668"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wx-zz-z5x">
+                                        <rect key="frame" x="32.999999999999986" y="40.666666666666686" width="61" height="30"/>
+                                        <state key="normal" title="Let's Go!"/>
+                                        <connections>
+                                            <segue destination="c0e-vL-6SW" kind="show" id="T0h-EO-T24"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ouT-3e-fOn" firstAttribute="centerY" secondItem="ON4-UO-yw4" secondAttribute="centerY" id="Gf0-cP-QTW"/>
+                            <constraint firstItem="ouT-3e-fOn" firstAttribute="centerX" secondItem="ON4-UO-yw4" secondAttribute="centerX" id="MQy-uE-Ate"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="H5y-Tz-6ak"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YTR-K7-9To" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1345" y="90"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="h3o-sr-Qpq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="c0e-vL-6SW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="leG-Xz-vPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1891" y="88"/>
+        </scene>
+    </scenes>
+</document>

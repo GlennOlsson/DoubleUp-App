@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rt7-ia-jt5">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main-->
+        <scene sceneID="t3b-0u-mcD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="ZRP-Wf-r3A" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pbb-RW-Z79" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="535" y="-144"/>
+        </scene>
+        <!--Storyboard Managing View Controller-->
+        <scene sceneID="2Yq-yY-fkA">
+            <objects>
+                <viewController id="oFD-DS-0wn" customClass="StoryboardManagingViewController" customModule="DoubleUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oDF-dF-SIO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="Dt2-aH-ssW">
+                                <rect key="frame" x="-562.5" y="-416.5" width="1500" height="1500"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1500" id="835-iJ-Yck"/>
+                                    <constraint firstAttribute="height" constant="1500" id="uDR-Py-3dZ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Dt2-aH-ssW" firstAttribute="centerY" secondItem="oDF-dF-SIO" secondAttribute="centerY" id="IwP-de-TGz"/>
+                            <constraint firstItem="Dt2-aH-ssW" firstAttribute="centerX" secondItem="oDF-dF-SIO" secondAttribute="centerX" id="yhd-hw-1mU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4tP-Zg-mYA"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zIe-zM-SXf"/>
+                    <connections>
+                        <segue destination="ZRP-Wf-r3A" kind="show" identifier="SegueToMain" id="Feg-2Z-3wp"/>
+                        <segue destination="r9e-dp-Bov" kind="show" identifier="SegueToTutorial" id="riC-9a-jYk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iyi-at-vD8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-76" y="143.47826086956522"/>
+        </scene>
+        <!--Tutorial-->
+        <scene sceneID="J7V-U3-QFv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Tutorial" id="r9e-dp-Bov" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MKO-ya-bGu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="535" y="431"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tk9-9h-fKE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="rt7-ia-jt5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rmU-f3-4xC">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="oFD-DS-0wn" kind="relationship" relationship="rootViewController" id="xWt-gG-vjG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hhK-9Q-plG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1084" y="143"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LaunchImage" width="750" height="750"/>
+    </resources>
+</document>
