@@ -38,6 +38,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate{
         if let username = usernameField.text{
             if username.count >= 3 && username.count <= 14{
                 //TODO Include notification token
+                setUsernameButton.isEnabled = false
                 firstStart(username: username)
             }
         }
@@ -96,6 +97,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate{
                         let alert = UIAlertController(title: "Something happened", message: "Something unpredicted occured. Try again later", preferredStyle: UIAlertControllerStyle.alert)
                         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                         self.present(alert, animated: true, completion: nil)
+                        self.setUsernameButton.isEnabled = true
                     }
                 }
                 else{
@@ -103,6 +105,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate{
                     let alert = UIAlertController(title: "Something happened", message: "Something unpredicted occured. Try again later", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
+                    self.setUsernameButton.isEnabled = true
                 }
             }
         }
