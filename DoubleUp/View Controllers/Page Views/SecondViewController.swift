@@ -41,6 +41,9 @@ class SecondViewController: UIViewController {
         }
     }
     
+    
+    
+    
     func firstStart(username: String){
         var json: Parameters
 
