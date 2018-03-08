@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-class NewGameViewController: UIViewController {
+class NewGameViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var opponentUsernameField: UITextField!
     
@@ -18,12 +18,20 @@ class NewGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        opponentUsernameField.delegate = self
+        
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Double Up!", style: .plain, target: nil, action: #selector(buttonTapped(_:)))
         // Do any additional setup after loading the view.
     }
     
     @objc func buttonTapped(_ sender : Any?){
         print("HEYHEY")
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        sendButtonPressed(sendNewGameButton)
+        return true
     }
     
     override func didReceiveMemoryWarning() {

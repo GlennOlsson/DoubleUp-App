@@ -11,7 +11,7 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-class ChangeUsernameViewController: UIViewController {
+class ChangeUsernameViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var usernameField: UITextField!
     
@@ -21,6 +21,7 @@ class ChangeUsernameViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         usernameField.placeholder = getUsername()
+        usernameField.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,6 +32,12 @@ class ChangeUsernameViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool){
             statusLabel.text = ""
             statusLabel.isHidden = true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        saveNewUsernameClicked(self)
+        return true
     }
     
     @IBAction func saveNewUsernameClicked(_ sender: Any) {

@@ -11,7 +11,7 @@ import UserNotifications
 import SwiftyJSON
 import Alamofire
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var mainLabel: UILabel!
     
@@ -25,6 +25,8 @@ class SecondViewController: UIViewController {
         
         UIApplication.shared.registerForRemoteNotifications()
         // Do any additional setup after loading the view.
+        
+        usernameField.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,6 +41,12 @@ class SecondViewController: UIViewController {
                 firstStart(username: username)
             }
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        setUsernamePressed(self)
+        return true
     }
     
     func firstStart(username: String){
