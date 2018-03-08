@@ -42,8 +42,9 @@ class ChangeUsernameViewController: UIViewController {
                 changeUsername(username: username)
             }
             else{
-                statusLabel.text = "Username needs to be 3-14 charachters!"
-                statusLabel.textColor = UIColor(red: 0.9, green: 0, blue: 0, alpha: 1)
+                let alert = UIAlertController(title: "Username needs to be 3-14 charachters!", message: "Yours was \(username.count) characters", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }
@@ -71,6 +72,7 @@ class ChangeUsernameViewController: UIViewController {
                         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                         self.present(alert, animated: true, completion: nil)
                         setUsername(username: username)
+                        self.usernameField.placeholder = username
                     }
                     else{
                         let alert = UIAlertController(title: "Something happened", message: "Something unpredicted occured. Try again later", preferredStyle: UIAlertControllerStyle.alert)

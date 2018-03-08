@@ -85,7 +85,7 @@ func getGames(){
         let JsonObject = JSON(stringArray)
         let JsonArray = JsonObject.arrayValue
         var gameArray: [Game] = []
-
+        
         for element in JsonArray{
             let gameAsJson = JSON(element)
             let game = Game(json: gameAsJson)
@@ -93,7 +93,7 @@ func getGames(){
         }
         gamesList = gameArray
     }
-    
+        
     else{
         print("NOPE")
     }

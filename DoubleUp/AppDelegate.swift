@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         print("Registering for push")
-//        UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]){ (granted, error) in }
+        //        UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]){ (granted, error) in }
         application.registerForRemoteNotifications()
         
         getGames()
@@ -98,6 +98,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             Alamofire.request("\(getMainURL())/newStartup", method: .post, parameters: json, encoding: JSONEncoding.default).responseJSON { response in
                 print("New Start")
+                do{
+                    if let data = response.data{
+                        if let statusCode = response.response?.statusCode{
+                            if statusCode == 200{
+                                let responseJSON = try JSON(data: data)
+                                if let token = responseJSON["Token"].string{
+                                    //Force changing user token
+                                    setUserToken(userToken: token)
+                                }
+                            }
+                        }
+                    }
+                }
+                catch{
+                    print("Error with NewStart")
+                }
+                
             }
         }
         else{

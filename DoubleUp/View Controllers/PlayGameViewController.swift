@@ -71,7 +71,50 @@ class PlayGameViewController: UIViewController {
         }
         else{
             //Play again button
-            
+            if let token = getUserToken(){
+                let json: Parameters = [
+                    "Token": "\(token)",
+                    "RequestedOpponent" : "\(opponentUsername)",
+                    "StartAmount": 1
+                ]
+                Alamofire.request("\(getMainURL())/newGame", method: .post, parameters: json, encoding: JSONEncoding.default).responseJSON { response in
+                    print("/newGame: \(json)")
+                    if let data = response.data{
+                        do{
+                            if let statusCode = response.response?.statusCode{
+                                if(statusCode == 200){
+                                    let responseJSON = try JSON(data: data)
+                                    let gameID = responseJSON["GameID"].string!
+                                    
+                                    self.gameID = gameID
+                                    self.currentAmount = 1
+                                    self.myTurn = false
+                                    self.isOver = false
+
+                                    self.playAgainButton.isEnabled = false
+                                    
+                                    
+                                    getUserInfo()
+                                    getGames()
+                                    
+                                    self.assignValuesToOutlets()
+                                }
+                                else if statusCode == 401{
+                                    print("ERROR, could not find user with username at playAgain")
+                                }
+                                else if statusCode == 402{
+                                    print("ERROR, could not find random user at playAgain")
+                                }
+                            }
+                        }
+                        catch{
+                            let alert = UIAlertController(title: "Something happened", message: "Something unpredicted occured. Try again later", preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                    }
+                }
+            }
         }
     }
     
