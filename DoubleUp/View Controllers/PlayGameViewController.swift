@@ -90,7 +90,7 @@ class PlayGameViewController: UIViewController {
                                     self.currentAmount = 1
                                     self.myTurn = false
                                     self.isOver = false
-
+                                    
                                     self.playAgainButton.isEnabled = false
                                     
                                     
@@ -119,6 +119,7 @@ class PlayGameViewController: UIViewController {
     }
     
     func playOnGame(isDoubling: Bool){
+        
         let amount = isDoubling ? currentAmount * 2 : currentAmount
         
         if amount > getBank()! && isDoubling{
@@ -128,6 +129,9 @@ class PlayGameViewController: UIViewController {
             loadingCircle.stopAnimating()
             return
         }
+        
+        doubleUpButton.isEnabled = false
+        keepMoneyButton.isEnabled = false
         
         var json: Parameters
         json = [
@@ -141,23 +145,39 @@ class PlayGameViewController: UIViewController {
         
         Alamofire.request("\(getMainURL())/playGame", method: .post, parameters: json, encoding: JSONEncoding.default).responseJSON { response in
             print("/playGame: \(json)")
-            if let statusCode = response.response?.statusCode{
-                print("Status code: \(statusCode)")
-                
-                if(statusCode == 200){
-                    self.isOver = !isDoubling
-                    self.myTurn = isDoubling ? false : true
-                    self.currentAmount = amount
+            if let data = response.data{
+                if let statusCode = response.response?.statusCode{
+                    print("Status code: \(statusCode)")
                     
-                    self.assignValuesToOutlets()
-                    
-                    getUserInfo()
-                    getGames()
+                    if(statusCode == 200){
+                        self.isOver = !isDoubling
+                        self.myTurn = isDoubling ? false : true
+                        self.currentAmount = amount
+                        
+                        self.assignValuesToOutlets()
+                        
+                        getUserInfo()
+                        getGames()
+                    }
+                    else{
+                        print("Not 200 at /playGame")
+                        
+                        self.doubleUpButton.isEnabled = true
+                        self.keepMoneyButton.isEnabled = true
+                    }
+                    self.loadingCircle.stopAnimating()
                 }
                 else{
-                    print("Not 200 at /playGame")
+                    print("Bad response! Connection errror?")
+                    
+                    let alert = UIAlertController(title: "Something happened", message: "Try again", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    self.loadingCircle.stopAnimating()
+                    
+                    self.doubleUpButton.isEnabled = true
+                    self.keepMoneyButton.isEnabled = true
                 }
-                self.loadingCircle.stopAnimating()
             }
         }
     }

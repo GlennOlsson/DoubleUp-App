@@ -41,6 +41,11 @@ class SecondViewController: UIViewController, UITextFieldDelegate{
                 setUsernameButton.isEnabled = false
                 firstStart(username: username)
             }
+            else{
+                let alert = UIAlertController(title: "Username needs to be 3-14 charachters!", message: "Yours was \(username.count) characters", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
@@ -52,7 +57,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate{
     
     func firstStart(username: String){
         var json: Parameters
-
+        
         if let pushToken = getNotificationToken(){
             json = [
                 "Username": "\(username)",
